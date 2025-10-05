@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Dorji Wangmo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <!-- Project 1 -->
+    <div class="project" data-description="A simple physics project where a flip-flop circuit was designed to make lights turn on and off alternately.">
+      <h3>Physics Project: Flip-Flop Lights</h3>
+      <img src="SR flipflop.jpg" alt="Flip-Flop Lights Image" class="project-img">
+      <p class="project-desc">Hover over the image to see the description.</p>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project" data-description="Our aim is to build a web application that helps students and faculty easily view, register, and stay updated on college events.">
+      <h3>Future Project: College Event Management</h3>
+      <img src="eventmanagement.png" alt="College Event Management Image" class="project-img">
+      <p class="project-desc">Hover over the image to see the description.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Dorji Wangmo. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript Enhancements -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const projects = document.querySelectorAll(".project");
+
+      projects.forEach(project => {
+        const img = project.querySelector(".project-img");
+        const desc = project.querySelector(".project-desc");
+        const fullDesc = project.getAttribute("data-description");
+
+        // Hover to show description
+        img.addEventListener("mouseover", () => {
+          desc.textContent = fullDesc;
+          img.style.transform = "scale(1.05)";
+          img.style.boxShadow = "0px 6px 15px rgba(0,0,0,0.3)";
+        });
+
+        img.addEventListener("mouseout", () => {
+          desc.textContent = "Hover over the image to see the description.";
+          img.style.transform = "scale(1)";
+          img.style.boxShadow = "0px 4px 12px rgba(0,0,0,0.2)";
+        });
+
+        // Fade-in effect for each project on load
+        project.style.opacity = 0;
+        project.style.transform = "translateY(20px)";
+        project.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        setTimeout(() => {
+          project.style.opacity = 1;
+          project.style.transform = "translateY(0)";
+        }, 200);
+      });
+
+      // Smooth scroll for navbar
+      document.querySelectorAll(".navbar a").forEach(link => {
+        link.addEventListener("click", (e) => {
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            e.preventDefault();
+            targetSection.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
