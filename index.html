@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Dorji Wangmo</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Linking external CSS file -->
+</head>
+<body>
+  
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <!-- Profile Image -->
+      <div class="hero-img">
+        <img src="photo_2025.jpg" alt="Dorji Wangmo" class="profile-pic">
+      </div>
+
+      <!-- Introduction Text -->
+      <div class="hero-text">
+        <h1>Hello, I'm <span class="highlight">Dorji Wangmo</span></h1>
+        <p class="sub-title">B.Ed Secondary IT | Aspiring ICT Educator</p>
+        <p class="typing-text">Learning, creating, and transforming with the power of technology.</p>
+
+        <!-- Call-to-action buttons -->
+        <div class="hero-buttons">
+          <a href="project.html" class="btn">View My Projects</a>
+          <a href="contact.html" class="btn secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Dorji Wangmo. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript Enhancements -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      // Typing effect
+      const textElement = document.querySelector(".typing-text");
+      const words = ["Learning,", "Creating,", "Transforming,"];
+      let wordIndex = 0, charIndex = 0, isDeleting = false;
+
+      function type() {
+        const currentWord = words[wordIndex];
+        let displayedText = isDeleting 
+          ? currentWord.substring(0, charIndex--)
+          : currentWord.substring(0, charIndex++);
+        textElement.textContent = displayedText;
+
+        if (!isDeleting && charIndex === currentWord.length + 1) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(type, 200);
+        } else {
+          setTimeout(type, isDeleting ? 100 : 150);
+        }
+      }
+      type();
+
+      // Hero button hover effect
+      document.querySelectorAll(".hero-buttons .btn").forEach(btn => {
+        btn.addEventListener("mouseover", () => btn.style.transform = "scale(1.1)");
+        btn.addEventListener("mouseout", () => btn.style.transform = "scale(1)");
+      });
+
+      // Profile picture hover brightness
+      const profilePic = document.querySelector(".profile-pic");
+      profilePic.addEventListener("mouseover", () => profilePic.style.filter = "brightness(85%)");
+      profilePic.addEventListener("mouseout", () => profilePic.style.filter = "brightness(100%)");
+
+      // Smooth scroll for navbar links
+      document.querySelectorAll(".navbar a").forEach(link => {
+        link.addEventListener("click", (e) => {
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            e.preventDefault();
+            targetSection.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Fade-in animation for hero content
+      const heroContent = document.querySelector(".hero-content");
+      heroContent.style.opacity = 0;
+      heroContent.style.transform = "translateY(30px)";
+      heroContent.style.transition = "opacity 1s ease, transform 1s ease";
+
+      setTimeout(() => {
+        heroContent.style.opacity = 1;
+        heroContent.style.transform = "translateY(0)";
+      }, 200);
+
+    });
+  </script>
+
+</body>
+</html>
