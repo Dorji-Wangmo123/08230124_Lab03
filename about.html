@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Dorji Wangmo</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+/* =============================
+   General Styles
+============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #000;
+  background-color: #0d0554;
+  transition: opacity 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3 {
+  color: #000;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =============================
+   Navigation Bar
+============================= */
+header {
+  background-color: #22686e;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 10px;
+}
+
+.navbar li a {
+  color: rgb(55, 18, 110);
+  font-weight: bold;
+  padding: 8px 12px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar li a:hover {
+  background-color: rgb(58, 62, 28);
+  color: #4CAF50;
+  border-radius: 5px;
+}
+
+/* =============================
+   About Section
+============================= */
+.about-page {
+  padding: 40px 20px;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInAnimation 0.8s forwards ease-in-out;
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-page h2 {
+  text-align: center;
+  color: #ff5722;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.about-pic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #ff9800;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.about-pic:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.about-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.about-text h3 span {
+  color: #ff9800;
+}
+
+.about-text .tagline {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.about-text p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: #000;
+}
+
+/* =============================
+   Contact Section
+============================= */
+.contact-section {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.social-links a {
+  font-size: 30px;
+  margin: 0 12px;
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a.instagram { color: #E4405F; }
+.social-links a.github { color: #333; }
+
+.social-links a:hover {
+  transform: scale(1.2);
+  color: #ff9800;
+}
+
+/* =============================
+   Footer
+============================= */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  margin-top: 30px;
+}
+
+/* =============================
+   Responsive Design
+============================= */
+@media (min-width: 600px) {
+  .about-container {
+    grid-template-columns: 1fr 2fr;
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    gap: 40px;
+  }
+}
+  </style>
+</head>
+<body class="fade-in">
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="about-page">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <!-- Profile Picture -->
+      <div class="about-image">
+        <img src="photo_2025.jpg" alt="Dorji Wangmo" class="about-pic">
+      </div>
+      <!-- About Me Text -->
+      <div class="about-text">
+        <h3>Hello! I'm <span>Dorji Wangmo</span></h3>
+        <p class="tagline">🌸 A curious learner and book lover 🌸</p>
+        <p>I was born on May 19, 2005, and I love discovering new ideas through books, movies, and conversations.</p>
+        <p>Reading has always been my favorite escape helping me imagine, learn, and connect with different perspectives.</p>
+        <p>I value kindness, honesty, and lifelong learning. While I enjoy spending time with others, I also love quiet moments indoors reading or reflecting.</p>
+        <p>My dream is to grow as a teacher and a person, inspiring others just as I have been inspired by books, people, and art.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section fade-in">
+    <h2>Contact Me</h2>
+    <div class="social-links">
+      <a href="#" class="instagram">Instagram</a>
+      <a href="#" class="github">GitHub</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Dorji Wangmo. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript Enhancements -->
+  <script>
+    // Profile picture hover
+    const profilePic = document.querySelector('.about-pic');
+    profilePic.addEventListener('mouseenter', () => {
+      profilePic.style.transform = 'scale(1.1) rotate(3deg)';
+    });
+    profilePic.addEventListener('mouseleave', () => {
+      profilePic.style.transform = 'scale(1) rotate(0deg)';
+    });
+
+    // Typing animation for tagline
+    const tagline = document.querySelector('.tagline');
+    const text = "🌸 A curious learner and book lover 🌸";
+    let index = 0;
+    function typeTagline() {
+      tagline.textContent = text.slice(0, index++);
+      if (index <= text.length) {
+        setTimeout(typeTagline, 100);
+      } else {
+        setTimeout(() => {
+          index = 0;
+          typeTagline();
+        }, 2000);
+      }
+    }
+    typeTagline();
+
+    // Social links click alert
+    const links = document.querySelectorAll('.social-links a');
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('This link will take you to ' + link.className + ' profile.');
+      });
+    });
+
+    // Page fade-out on nav click
+    document.querySelectorAll('.navbar a').forEach(link => {
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = this.getAttribute('href');
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = target;
+        }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
