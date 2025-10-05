@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills | Dorji Wangmo</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Progress bar container */
+    .progress-container {
+      background-color: #eee;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 8px 0;
+    }
+
+    /* Progress bar itself */
+    .progress-bar {
+      height: 20px;
+      width: 0;
+      background-color: #ff5722;
+      border-radius: 20px;
+      transition: width 1.2s ease-in-out;
+    }
+
+    .skill-label {
+      font-weight: bold;
+      margin-top: 5px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+
+      <!-- Technical Skills -->
+      <div class="skill-card">
+        <h3>Technical Skills</h3>
+        <div class="progress-item">
+          <span class="skill-label">HTML & CSS</span>
+          <div class="progress-container"><div class="progress-bar" data-width="90%"></div></div>
+        </div>
+        <div class="progress-item">
+          <span class="skill-label">JavaScript</span>
+          <div class="progress-container"><div class="progress-bar" data-width="80%"></div></div>
+        </div>
+        <div class="progress-item">
+          <span class="skill-label">Python</span>
+          <div class="progress-container"><div class="progress-bar" data-width="85%"></div></div>
+        </div>
+        <div class="progress-item">
+          <span class="skill-label">C++</span>
+          <div class="progress-container"><div class="progress-bar" data-width="70%"></div></div>
+        </div>
+        <div class="progress-item">
+          <span class="skill-label">SQL (Databases)</span>
+          <div class="progress-container"><div class="progress-bar" data-width="75%"></div></div>
+        </div>
+        <div class="progress-item">
+          <span class="skill-label">Responsive Web Design</span>
+          <div class="progress-container"><div class="progress-bar" data-width="90%"></div></div>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="skill-card">
+        <h3>Soft Skills</h3>
+        <ul>
+          <li>Teamwork & Collaboration</li>
+          <li>Effective Communication</li>
+          <li>Problem-Solving</li>
+          <li>Adaptability</li>
+          <li>Leadership</li>
+          <li>Time Management</li>
+          <li>Creativity & Critical Thinking</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Dorji Wangmo. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript Enhancements -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Fade-in and hover for skill cards
+      const skillCards = document.querySelectorAll(".skill-card");
+      skillCards.forEach((card, index) => {
+        card.style.opacity = 0;
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        setTimeout(() => {
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        }, index * 200);
+
+        card.addEventListener("mouseover", () => {
+          card.style.transform = "translateY(-5px)";
+          card.style.boxShadow = "0px 8px 20px rgba(0,0,0,0.3)";
+        });
+        card.addEventListener("mouseout", () => {
+          card.style.transform = "translateY(0)";
+          card.style.boxShadow = "0px 3px 6px rgba(0,0,0,0.15)";
+        });
+      });
+
+      // Animate progress bars when in view
+      const progressBars = document.querySelectorAll(".progress-bar");
+      const animateProgress = () => {
+        progressBars.forEach(bar => {
+          const rect = bar.getBoundingClientRect();
+          if(rect.top < window.innerHeight - 50) {
+            bar.style.width = bar.getAttribute("data-width");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", animateProgress);
+      animateProgress(); // run once on load
+    });
+  </script>
+</body>
+</html>
